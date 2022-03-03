@@ -1,3 +1,4 @@
+
 package tn.esprit.spring.entities.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,3 +12,4 @@ import tn.esprit.spring.entities.ReplyComplaint;
 public interface ReplyComplaintRepository extends JpaRepository<ReplyComplaint, Long> {
 
 }
+
