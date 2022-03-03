@@ -9,13 +9,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table( name = "Loan")
-public class Loan {
+
+public class Loan implements Serializable {
+	private static final long serialVersionUID = 1L;
 	@Id	
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name="idLoan")
@@ -24,8 +28,9 @@ public class Loan {
 	private String NameLoan;
 	private String TMM;
 	private String DescriptionLoan;
-	
+	@Temporal(TemporalType.DATE)
 	private Date DateTakeLoan;
+	@Temporal(TemporalType.DATE)
 	private Date DatePayLoan;
 	
 	@Enumerated(EnumType.STRING)

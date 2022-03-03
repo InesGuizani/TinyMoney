@@ -1,0 +1,9 @@
+package tn.esprit.spring.Services.Interfaces;
+
+import java.util.List;
+
+import tn.esprit.spring.entities.Product;
+
+public interface ProductServices {
+	List<Product> getAllProducts();
+}

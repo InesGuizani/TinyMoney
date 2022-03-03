@@ -1,8 +1,9 @@
 package tn.esprit.spring.entities;
 
+import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -10,29 +11,32 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+
 
 @Entity
-@Table( name = "User")
-public class User {
+
+public class User implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
 	@Id	
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column(name="idUser")
+	
 	
 	private long idUser;
-	private String FirstName;
-	private String LastName;
-	private String Password;
-	private String Address;
+	private String firstName;
+	
+
+	private String lastName;
+	private String password;
+	private String address;
 	
 	@Enumerated(EnumType.STRING)
 	private UserRole UserRole;
 	
-	private String Email;
-	private String Job;
-	private String Picture;
-	private long Numtel;
+	private String email;
+	private String job;
+	private String picture;
+	private long numtel;
 	
 	@ManyToMany
 	private Set<Account>account;
@@ -41,86 +45,128 @@ public class User {
 	private Set<Complaint>complaint;
 	
 	@ManyToMany
+	private Set<Product>product;
+	@ManyToMany
 	private Set<Agency>agency;
-	
-	public User(String firstName,String lastName, String password, String address, tn.esprit.spring.entities.UserRole userRole,
-			String email, String job, String picture, long numtel) {
+
+	public User(String firstName, String lastName, String password, String address,
+			tn.esprit.spring.entities.UserRole userRole, String email, String job, String picture, long numtel
+			) {
 		super();
-		FirstName = firstName;
-		LastName = lastName;
-		Password = password;
-		Address = address;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.password = password;
+		this.address = address;
 		UserRole = userRole;
-		Email = email;
-		Job = job;
-		Picture = picture;
-		Numtel = numtel;
-	}
-	public User() {
+		this.email = email;
+		this.job = job;
+		this.picture = picture;
+		this.numtel = numtel;
 		
 	}
-	
-	public String getLastName() {
-		return LastName;
-	}
-	public void setLastName(String lastName) {
-		LastName = lastName;
-	}
+
 	public long getIdUser() {
 		return idUser;
 	}
+
 	public void setIdUser(long idUser) {
 		this.idUser = idUser;
 	}
+
 	public String getFirstName() {
-		return FirstName;
+		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
-		FirstName = firstName;
+		this.firstName = firstName;
 	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
 	public String getPassword() {
-		return Password;
+		return password;
 	}
+
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
+
 	public String getAddress() {
-		return Address;
+		return address;
 	}
+
 	public void setAddress(String address) {
-		Address = address;
+		this.address = address;
 	}
+
 	public UserRole getUserRole() {
 		return UserRole;
 	}
+
 	public void setUserRole(UserRole userRole) {
 		UserRole = userRole;
 	}
-	public String getEmail() {
-		return Email;
-	}
-	public void setEmail(String email) {
-		Email = email;
-	}
-	public String getJob() {
-		return Job;
-	}
-	public void setJob(String job) {
-		Job = job;
-	}
-	public String getPicture() {
-		return Picture;
-	}
-	public void setPicture(String picture) {
-		Picture = picture;
-	}
-	public long getNumtel() {
-		return Numtel;
-	}
-	public void setNumtel(long numtel) {
-		Numtel = numtel;
-	}
-	
-	
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getJob() {
+		return job;
+	}
+
+	public void setJob(String job) {
+		this.job = job;
+	}
+
+	public String getPicture() {
+		return picture;
+	}
+
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+
+	public long getNumtel() {
+		return numtel;
+	}
+
+	public void setNumtel(long numtel) {
+		this.numtel = numtel;
+	}
+
+	public Set<Account> getAccount() {
+		return account;
+	}
+
+	public void setAccount(Set<Account> account) {
+		this.account = account;
+	}
+
+	public Set<Complaint> getComplaint() {
+		return complaint;
+	}
+
+	public void setComplaint(Set<Complaint> complaint) {
+		this.complaint = complaint;
+	}
+
+	public Set<Agency> getAgency() {
+		return agency;
+	}
+
+	public void setAgency(Set<Agency> agency) {
+		this.agency = agency;
+	}
+	
 }

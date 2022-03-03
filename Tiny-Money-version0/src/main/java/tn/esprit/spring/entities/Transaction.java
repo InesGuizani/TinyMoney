@@ -1,6 +1,6 @@
 package tn.esprit.spring.entities;
 
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -9,17 +9,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
 
 @Entity
-@Table( name = "Transaction")
-public class Transaction {
+
+public class Transaction implements Serializable{
+	private static final long serialVersionUID = 1L;
 	@Id	
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column(name="idTransaction")
+	
 	
 	private long idTransaction;
 	
@@ -27,7 +31,7 @@ public class Transaction {
 	private TypeTransaction TypeTransaction;
 	@Enumerated(EnumType.STRING)
 	private TransactionNature TransactionNature;
-	
+	@Temporal(TemporalType.DATE)
 	private Date DateTransaction;
 	private float AmountTransaction;
 	
@@ -36,8 +40,8 @@ public class Transaction {
 	@OneToOne
 	private Bill bill;
 	
-	public Transaction(tn.esprit.spring.entities.TypeTransaction typeTransaction,
-			tn.esprit.spring.entities.TransactionNature transactionNature, Date dateTransaction,
+	public Transaction(TypeTransaction typeTransaction,
+			TransactionNature transactionNature, Date dateTransaction,
 			float amountTransaction) {
 		super();
 		TypeTransaction = typeTransaction;

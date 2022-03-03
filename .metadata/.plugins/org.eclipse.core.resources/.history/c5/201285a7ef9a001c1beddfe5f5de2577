@@ -1,0 +1,21 @@
+package tn.esprit.spring.Services.Implementation;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import tn.esprit.spring.Services.Interfaces.ProductServices;
+import tn.esprit.spring.entities.Product;
+import tn.esprit.spring.entities.Repository.ProductRepository;
+
+public class ProductServicesImpl implements ProductServices{
+	
+	@Autowired
+	private ProductRepository productrepository ;
+	@Override
+	public List<Product> getAllProducts() {
+		List<Product>products=productrepository.findAll();
+		return products;
+	}
+
+}

@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
-Built-By: NOUSSA
-Build-Jdk: 17.0.1
 Implementation-Title: Tiny-Money-version0
 Implementation-Version: 1.0
+Built-By: acer
 Implementation-Vendor-Id: tn.esprit.spring
-Implementation-URL: https://spring.io/projects/spring-boot/Tiny-Money-ve
- rsion0
+Build-Jdk: 1.8.0_261
+Implementation-URL: https://spring.io/projects/spring-boot/Tiny-Money-
+ version0
 Created-By: Maven Integration for Eclipse
 

@@ -1,6 +1,6 @@
 package tn.esprit.spring.entities;
 
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -8,22 +8,30 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+
+
+
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 @Entity
-@Table( name = "Account")
 
-public class Account {
+
+public class Account implements Serializable{
+	private static final long serialVersionUID = 1L;
 	@Id	
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column(name="idAccount")
+	
 	
 	private long idAccount;
 	@Enumerated(EnumType.STRING)
 	private TypeAccount TypeAccount;
 	private long CIN;
 	private long RIB;
+	@Temporal(TemporalType.DATE)
 	private Date DateCreation;
 	private float TotalAccount;
 	
@@ -36,7 +44,7 @@ public class Account {
 	@ManyToMany
 	private Set<Transaction>transaction;
 	
-	public Account(tn.esprit.spring.entities.TypeAccount typeAccount, long cIN, long rIB, Date dateCreation,
+	public Account(TypeAccount typeAccount, long cIN, long rIB, Date dateCreation,
 			float totalAccount) {
 		super();
 		TypeAccount = typeAccount;
@@ -57,7 +65,7 @@ public class Account {
 	public TypeAccount getTypeAccount() {
 		return TypeAccount;
 	}
-	public void setTypeAccount(TypeAccount typeAccount) {
+	public void setTypeAccount(tn.esprit.spring.entities.TypeAccount typeAccount) {
 		TypeAccount = typeAccount;
 	}
 	public long getCIN() {
