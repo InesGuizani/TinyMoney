@@ -23,12 +23,14 @@ tn\esprit\spring\entities\TypeTransaction.class
 tn\esprit\spring\Controller\TransactionController.class
 tn\esprit\spring\entities\ReplyComplaint.class
 tn\esprit\spring\Services\Implementation\TransactionServicesImpl.class
+tn\esprit\spring\Services\Implementation\UserDetailsImpl.class
 tn\esprit\spring\Controller\AccountController.class
 tn\esprit\spring\Controller\UserController.class
 tn\esprit\spring\Controller\BillController.class
 tn\esprit\spring\Services\Interfaces\InsuranceServices.class
 tn\esprit\spring\Services\Interfaces\ComplaintServices.class
 tn\esprit\spring\entities\Repository\AccountRepository.class
+tn\esprit\spring\Services\Implementation\UserDetailsServiceImpl.class
 tn\esprit\spring\entities\Repository\AgencyRepository.class
 tn\esprit\spring\Controller\LoanController.class
 tn\esprit\spring\Controller\ComplaintController.class

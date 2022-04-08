@@ -29,7 +29,7 @@ public class Agency implements Serializable {
 	private Set<User>user;
 	
 	public Agency(String dAG, String addressAgency, String agencyName, long agencyTel) {
-		super();
+		
 		DAG = dAG;
 		AddressAgency = addressAgency;
 		AgencyName = agencyName;
